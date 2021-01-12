@@ -60,10 +60,7 @@ public class UserController extends HttpServlet {
 		}else if(cmd.equals("joinForm")) {
 			response.sendRedirect("user/joinForm.jsp");
 		}else if(cmd.equals("join")) {
-			JoinReqDto dto = new JoinReqDto();
-			dto.setUsername(request.getParameter("username"));
-			dto.setPassword(request.getParameter("password"));
-			dto.setEmail(request.getParameter("email"));
+			JoinReqDto dto = (JoinReqDto) request.getAttribute("dto");
 //			System.out.println("JoinDto : " + dto.toString());
 			
 			int result = userService.회원가입(dto);
